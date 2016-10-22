@@ -12,9 +12,9 @@ namespace Models
             OrderItems = new List<OrderItem>();
         }
         [DataMember]
-        public long Id { get; set; }
+        public int Id { get; set; }
         [DataMember]
-        public Guid CustomerId { get; set; }
+        public int CustomerId { get; set; }
         [DataMember]
         public DateTime OrderDate { get; set; }
         [DataMember]
