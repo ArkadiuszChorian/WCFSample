@@ -4,8 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{C8FA30DF-9DC3-4A3B-A59B-8184B7A0E9DF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB60760F-F7E7-44D1-848C-B591325F2F93} = {DB60760F-F7E7-44D1-848C-B591325F2F93}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{15DEE71B-D087-4987-B3E3-02ACCF62BD5E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB60760F-F7E7-44D1-848C-B591325F2F93} = {DB60760F-F7E7-44D1-848C-B591325F2F93}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{EFD5B13E-3226-4C13-9A34-FDC640BBA78A}"
 EndProject

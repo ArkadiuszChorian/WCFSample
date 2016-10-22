@@ -7,7 +7,7 @@ namespace Models
     public class Customer
     {
         [DataMember]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [DataMember]
         public string FullName { get; set; }
     }

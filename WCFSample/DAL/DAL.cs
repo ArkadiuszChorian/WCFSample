@@ -4,13 +4,17 @@ using Models;
 
 namespace DAL
 {
-    class DAL
+    public class DAL
     {
         private static readonly Lazy<DAL> Lazy = new Lazy<DAL>(() => new DAL());
         public static DAL Instance => Lazy.Value;
 
         private DAL()
         {
+            Customers = new List<Customer>();
+            Orders = new List<Order>();
+            Products = new List<Product>();
+            OrderItems = new List<OrderItem>();
             GenerateExampleData();
         }
 
@@ -25,7 +29,7 @@ namespace DAL
             {
                 Customers.Add(new Customer
                 {
-                    Id = new Guid(),
+                    Id = i,
                     FullName = "Klient " + i
                 });
 

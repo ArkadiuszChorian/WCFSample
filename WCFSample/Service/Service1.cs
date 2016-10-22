@@ -1,31 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
+using Models;
 
 namespace Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public List<Product> GetProducts()
         {
-            return string.Format("You entered: {0}", value);
+            return DAL.DAL.Instance.Products;
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public List<Customer> GetCustomers()
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            return DAL.DAL.Instance.Customers;
+        }
+        
+        public void SubmitOrder(Order order)
+        {
+            DAL.DAL.Instance.Orders.Add(order);
+            order.OrderItems.ForEach(oi => DAL.DAL.Instance.OrderItems.Add(oi));
         }
     }
 }
