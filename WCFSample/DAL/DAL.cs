@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Models;
 
-namespace Host
+namespace DAL
 {
     class DAL
     {

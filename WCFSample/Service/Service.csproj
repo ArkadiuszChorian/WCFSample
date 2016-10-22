@@ -66,6 +66,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{db60760f-f7e7-44d1-848c-b591325f2f93}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{efd5b13e-3226-4c13-9a34-fdc640bba78a}</Project>
       <Name>Models</Name>
