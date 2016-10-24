@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using Client.ServiceReference1;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Models;
@@ -90,12 +91,51 @@ namespace Client
 
         private void LoadProductsAndCustomers()
         {
-            
+            Service1Client proxy = new Service1Client();
+            //ZzaServiceClient proxy = new ZzaServiceClient("NetTcpBinding_IZzaService");
+            try
+            {
+                Products = proxy.GetProducts();
+                Customers = proxy.GetCustomers();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load server data. " + ex.Message);
+            }
+            finally
+            {
+                proxy.Close();
+            }
+
         }
 
         private void OnSubmitOrder()
         {
-            
+            if (_CurrentOrder.CustomerId >= 0 && _CurrentOrder.OrderItems.Count > 0)
+            {
+                Service1Client proxy = new Service1Client();
+                try
+                {
+                    proxy.SubmitOrder(_CurrentOrder);
+                    CurrentOrder = new Order();
+                    CurrentOrder.OrderDate = DateTime.Now;
+                    Items = new ObservableCollection<OrderItemModel>();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving order, please try again later.");
+                    // Log it
+                }
+                finally
+                {
+                    proxy.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select a customer and add order items to submit an order");
+            }
         }
     }
 }
