@@ -121,6 +121,8 @@ namespace Client
                     CurrentOrder = new Order();
                     CurrentOrder.OrderDate = DateTime.Now;
                     Items = new ObservableCollection<OrderItemModel>();
+                    Orders = proxy.GetOrders();
+                    OrderItems = proxy.GetOrderItems();
                 }
                 catch (Exception ex)
                 {
