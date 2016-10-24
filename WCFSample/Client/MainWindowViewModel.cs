@@ -92,7 +92,7 @@ namespace Client
         private void LoadProductsAndCustomers()
         {
             Service1Client proxy = new Service1Client();
-            //ZzaServiceClient proxy = new ZzaServiceClient("NetTcpBinding_IZzaService");
+
             try
             {
                 Products = proxy.GetProducts();
