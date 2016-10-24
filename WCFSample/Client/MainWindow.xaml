@@ -33,6 +33,18 @@
                 <TextBlock Text="{Binding Path=TotalPrice, StringFormat=c}" />
             </StackPanel>
         </DataTemplate>
+        <DataTemplate x:Key="OrdersTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding CustomerId}" />
+                <TextBlock Text="{Binding OrderDate}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="OrderItemsTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding OrderId}" />
+                <TextBlock Text="{Binding TotalPrice}" />
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
     <Window.DataContext>
         <client:MainWindowViewModel />
@@ -53,7 +65,7 @@
         <ItemsControl ItemsSource="{Binding Products}"
                       ItemTemplate="{StaticResource ProductTemplate}"
                       HorizontalAlignment="Left"
-                      Height="526"
+                      Height="260"
                       Margin="266,34,0,0"
                       VerticalAlignment="Top"
                       Width="518" />
@@ -78,6 +90,20 @@
                 Margin="10,541,0,0"
                 VerticalAlignment="Top"
                 Width="239" />
+        <ItemsControl ItemsSource="{Binding Orders}"
+            ItemTemplate="{StaticResource OrdersTemplate}"
+            HorizontalAlignment="Left"
+            Height="260"
+            Margin="266,299,0,0"
+            VerticalAlignment="Top"
+            Width="252" />
+        <ItemsControl ItemsSource="{Binding OrderItems}"
+            ItemTemplate="{StaticResource OrderItemsTemplate}"
+            HorizontalAlignment="Left"
+            Height="260"
+            Margin="523,299,0,0"
+            VerticalAlignment="Top"
+            Width="259" />
 
     </Grid>
 </Window>

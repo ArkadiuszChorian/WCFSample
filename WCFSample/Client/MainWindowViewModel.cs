@@ -13,6 +13,8 @@ namespace Client
     {
         private ObservableCollection<Product> _Products;
         private ObservableCollection<Customer> _Customers;
+        private ObservableCollection<Order> _Orders;
+        private ObservableCollection<OrderItem> _OrderItems;
         private ObservableCollection<OrderItemModel> _Items = new ObservableCollection<OrderItemModel>();
         private Order _CurrentOrder = new Order();
 
@@ -43,6 +45,18 @@ namespace Client
         {
             get { return _Items; }
             set { SetProperty(ref _Items, value); }
+        }
+
+        public ObservableCollection<Order> Orders
+        {
+            get { return _Orders; }
+            set { SetProperty(ref _Orders, value); }
+        }
+
+        public ObservableCollection<OrderItem> OrderItems
+        {
+            get { return _OrderItems; }
+            set { SetProperty(ref _OrderItems, value); }
         }
 
         public Order CurrentOrder
