@@ -18,7 +18,17 @@ namespace Service
         {
             return DAL.DAL.Instance.Customers;
         }
-        
+
+        public List<Order> GetOrders()
+        {
+            return DAL.DAL.Instance.Orders;
+        }
+
+        public List<OrderItem> GetOrderItems()
+        {
+            return DAL.DAL.Instance.OrderItems;
+        }
+
         public void SubmitOrder(Order order)
         {
             DAL.DAL.Instance.Orders.Add(order);

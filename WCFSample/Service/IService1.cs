@@ -15,6 +15,10 @@ namespace Service
         List<Product> GetProducts();
         [OperationContract()]
         List<Customer> GetCustomers();
+        [OperationContract()]
+        List<Order> GetOrders();
+        [OperationContract()]
+        List<OrderItem> GetOrderItems();
         [OperationContract]
         void SubmitOrder(Order order);
     }
