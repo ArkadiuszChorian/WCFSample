@@ -91,8 +91,9 @@ namespace Client
 
         private void LoadProductsAndCustomers()
         {
-            Service1Client proxy = new Service1Client();
-            //ZzaServiceClient proxy = new ZzaServiceClient("NetTcpBinding_IZzaService");
+            //Service1Client proxy = new Service1Client();
+            Proxy proxy = new Proxy();
+
             try
             {
                 Products = proxy.GetProducts();
@@ -114,7 +115,8 @@ namespace Client
         {
             if (_CurrentOrder.CustomerId >= 0 && _CurrentOrder.OrderItems.Count > 0)
             {
-                Service1Client proxy = new Service1Client();
+                //Service1Client proxy = new Service1Client();
+                Proxy proxy = new Proxy();
                 try
                 {
                     proxy.SubmitOrder(_CurrentOrder);
