@@ -34,16 +34,26 @@
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="OrdersTemplate">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding CustomerId}" />
-                <TextBlock Text="{Binding OrderDate}" />
-            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding CustomerId}" HorizontalAlignment="Center" TextWrapping="Wrap" />
+                <TextBlock Grid.Column="1" Text="{Binding OrderDate}" HorizontalAlignment="Center" TextWrapping="Wrap" />
+            </Grid>
         </DataTemplate>
         <DataTemplate x:Key="OrderItemsTemplate">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding OrderId}" />
-                <TextBlock Text="{Binding TotalPrice}" />
-            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Quantity}" HorizontalAlignment="Center" TextWrapping="Wrap" />
+                <TextBlock Grid.Column="1" Text="{Binding UnitPrice}" HorizontalAlignment="Center" TextWrapping="Wrap" />
+                <TextBlock Grid.Column="2" Text="{Binding TotalPrice}" HorizontalAlignment="Center" TextWrapping="Wrap" />
+            </Grid>
         </DataTemplate>
     </Window.Resources>
     <Window.DataContext>
